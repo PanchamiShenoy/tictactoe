@@ -5,6 +5,10 @@ public class TicTacToeGame {
 	public static char[] board= new char[10];  
 	
 	public void createBoard() {
+		for(int i=1;i<board.length;i++)     //iterate through board array
+		{
+			board[i]=' ';
+		}
 		
 	}
 	
