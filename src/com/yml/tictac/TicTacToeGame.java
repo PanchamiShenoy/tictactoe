@@ -6,6 +6,7 @@ public class TicTacToeGame {
 
 	public static char[] board = new char[10];
 	public char playerCharacter, computerCharacter;
+	public int index = 0;
 
 	Scanner sc = new Scanner(System.in);
 
@@ -24,7 +25,7 @@ public class TicTacToeGame {
 		System.out.println(" " + board[4] + " | " + board[5] + " | " + board[6] + " ");
 		System.out.println("-----------");
 		System.out.println(" " + board[7] + " | " + board[8] + " | " + board[9] + " ");
-		
+
 	}
 
 	public void selectCharacter() {
@@ -40,6 +41,16 @@ public class TicTacToeGame {
 		}
 	}
 
+	public void desiredLocation() {
+		System.out.println("Player is playing");
+		System.out.println("Please enter the index 1 to 9");
+		index = sc.nextInt();
+		if (index < 1 || index > 9) {
+			System.out.println("Please enter the valid index");
+			desiredLocation();
+		}
+	}
+
 	public static void main(String[] args) {
 
 		System.out.println("welcome to TicTacToe");
@@ -47,6 +58,7 @@ public class TicTacToeGame {
 		t.createBoard();
 		t.selectCharacter();
 		t.displayBoard();
+		t.desiredLocation();
 	}
 
 }
