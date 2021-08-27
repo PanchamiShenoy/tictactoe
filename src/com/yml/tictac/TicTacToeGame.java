@@ -49,8 +49,27 @@ public class TicTacToeGame {
 			System.out.println("Please enter the valid index");
 			desiredLocation();
 		}
+		else {
+			checkSpace();
+		}
 	}
 
+	public void checkSpace()
+	{
+		
+		if(board[index]==' ')					
+		{
+			board[index]=playerCharacter;
+			displayBoard();
+		}
+		else
+			{
+				System.out.println("Please enter different index current one is already filled!!!");
+				desiredLocation();					
+				checkSpace();
+			}
+		
+	}
 	public static void main(String[] args) {
 
 		System.out.println("welcome to TicTacToe");
