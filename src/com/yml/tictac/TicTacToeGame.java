@@ -272,14 +272,29 @@ public class TicTacToeGame {
 		}
 
 		else {
-			computerPlay();
+			cornerSelect();
 		}
 		displayBoard();
 		checkWinner();
 		desiredLocation();
 	}
 
-	public void computerPlay() {
+	public void cornerSelect() {
+		int corner[] = { 1, 3, 7, 9 };// to check for corner values
+		int flag = 0;
+		for (int i = 0; i < 4; i++) {
+			if (board[corner[i]] == ' ') {
+				board[corner[i]] = computerCharacter;
+				flag = 1;
+				break;
+			}
+		}
+		if (flag == 0) {
+			randomSelect();
+		}
+	}
+
+	public void randomSelect() {
 		while (true) {
 			int index = rn.nextInt(9) + 1;
 			if (board[index] == ' ') {
