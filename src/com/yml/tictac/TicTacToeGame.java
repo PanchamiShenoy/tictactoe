@@ -141,7 +141,7 @@ public class TicTacToeGame {
 				break;
 			}
 		}
-		if (a1 == 9)
+		if (a1 == 10)
 			return 'd';
 		else
 			return 'n';
@@ -177,40 +177,101 @@ public class TicTacToeGame {
 	public void computerStratergy() {
 		turn = 'c';
 		System.out.println("Computer is playing!!!");
-		if ((board[1] == ' ') && (board[2] == board[3] && board[2] == computerCharacter)
+		if ((board[1] == ' ') && ((board[2] == board[3] && board[2] == computerCharacter)
 				|| (board[4] == board[7] && board[4] == computerCharacter)
-				|| (board[5] == board[9] && board[5] == computerCharacter)) {
+				|| (board[5] == board[9] && board[5] == computerCharacter))) {
 			board[1] = computerCharacter;
-		} else if ((board[2] == ' ') && (board[1] == board[3] && board[3] == computerCharacter)
-				|| (board[5] == board[8] && board[8] == computerCharacter)) {
+
+		} else if ((board[2] == ' ') && ((board[1] == board[3] && board[3] == computerCharacter)
+				|| (board[5] == board[8] && board[8] == computerCharacter))) {
 			board[2] = computerCharacter;
-		} else if ((board[3] == ' ') && (board[1] == board[2] && board[2] == computerCharacter)
+
+		} else if ((board[3] == ' ') && ((board[1] == board[2] && board[2] == computerCharacter)
 				|| (board[6] == board[9] && board[9] == computerCharacter)
-				|| (board[5] == board[7] && board[7] == computerCharacter)) {
+				|| (board[5] == board[7] && board[7] == computerCharacter))) {
 			board[3] = computerCharacter;
-		} else if ((board[4] == ' ') && (board[1] == board[7] && board[1] == computerCharacter)
-				|| (board[5] == board[6] && board[6] == computerCharacter)) {
+
+		} else if ((board[4] == ' ') && ((board[1] == board[7] && board[1] == computerCharacter)
+				|| (board[5] == board[6] && board[6] == computerCharacter))) {
 			board[4] = computerCharacter;
-		} else if ((board[5] == ' ') && (board[1] == board[9] && board[2] == computerCharacter)
+		} else if ((board[5] == ' ') && ((board[1] == board[9] && board[2] == computerCharacter)
 				|| (board[7] == board[3] && board[7] == computerCharacter)
 				|| (board[2] == board[8] && board[8] == computerCharacter)
-				|| (board[4] == board[6] && board[6] == computerCharacter)) {
+				|| (board[4] == board[6] && board[6] == computerCharacter))) {
 			board[5] = computerCharacter;
-		} else if ((board[6] == ' ') && (board[9] == board[3] && board[3] == computerCharacter)
-				|| (board[5] == board[4] && board[4] == computerCharacter)) {
+
+		} else if ((board[6] == ' ') && ((board[9] == board[3] && board[3] == computerCharacter)
+				|| (board[5] == board[4] && board[4] == computerCharacter))) {
 			board[6] = computerCharacter;
-		} else if ((board[7] == ' ') && (board[1] == board[4] && board[4] == computerCharacter)
+
+		} else if ((board[7] == ' ') && ((board[1] == board[4] && board[4] == computerCharacter)
 				|| (board[3] == board[5] && board[3] == computerCharacter)
-				|| (board[8] == board[9] && board[8] == computerCharacter)) {
-			board[3] = computerCharacter;
-		} else if ((board[8] == ' ') && (board[9] == board[7] && board[7] == computerCharacter)
-				|| (board[2] == board[5] && board[2] == computerCharacter)) {
+				|| (board[8] == board[9] && board[8] == computerCharacter))) {
+			board[7] = computerCharacter;
+
+		} else if ((board[8] == ' ') && ((board[9] == board[7] && board[7] == computerCharacter)
+				|| (board[2] == board[5] && board[2] == computerCharacter))) {
 			board[8] = computerCharacter;
-		} else if ((board[9] == ' ') && (board[1] == board[5] && board[5] == computerCharacter)
+
+		} else if ((board[9] == ' ') && ((board[1] == board[5] && board[5] == computerCharacter)
 				|| (board[6] == board[3] && board[3] == computerCharacter)
-				|| (board[8] == board[7] && board[7] == computerCharacter)) {
+				|| (board[8] == board[7] && board[7] == computerCharacter))) {
 			board[9] = computerCharacter;
-		} else {
+
+		} else if ((board[1] == ' ') && ((board[2] == board[3] && board[2] == playerCharacter)
+				|| (board[4] == board[7] && board[4] == playerCharacter)
+				|| (board[5] == board[9] && board[5] == playerCharacter))) {
+			board[1] = computerCharacter;
+
+		}
+
+		else if ((board[2] == ' ') && ((board[1] == board[3] && board[3] == playerCharacter)
+				|| (board[5] == board[8] && board[8] == playerCharacter))) {
+			board[2] = computerCharacter;
+		}
+
+		else if ((board[3] == ' ') && ((board[1] == board[2] && board[2] == playerCharacter)
+				|| (board[6] == board[9] && board[9] == playerCharacter)
+				|| (board[5] == board[7] && board[7] == playerCharacter))) {
+			System.out.println("13");
+			board[3] = computerCharacter;
+		}
+
+		else if ((board[4] == ' ') && ((board[1] == board[7] && board[7] == playerCharacter)
+				|| (board[5] == board[6] && board[6] == playerCharacter))) {
+			board[4] = computerCharacter;
+		}
+
+		else if ((board[5] == ' ') && ((board[1] == board[9] && board[1] == playerCharacter)
+				|| (board[7] == board[3] && board[7] == playerCharacter)
+				|| (board[2] == board[8] && board[8] == playerCharacter)
+				|| (board[4] == board[6] && board[6] == playerCharacter))) {
+			board[5] = computerCharacter;
+		}
+
+		else if ((board[6] == ' ') && ((board[9] == board[3] && board[3] == playerCharacter)
+				|| (board[5] == board[4] && board[4] == playerCharacter))) {
+			board[6] = computerCharacter;
+		}
+
+		else if ((board[7] == ' ') && ((board[1] == board[4] && board[4] == playerCharacter)
+				|| (board[8] == board[9] && board[9] == playerCharacter)
+				|| (board[5] == board[3] && board[3] == playerCharacter))) {
+			board[7] = computerCharacter;
+		}
+
+		else if ((board[8] == ' ') && ((board[9] == board[7] && board[7] == playerCharacter)
+				|| (board[2] == board[5] && board[2] == playerCharacter))) {
+			board[8] = computerCharacter;
+		}
+
+		else if ((board[9] == ' ') && ((board[1] == board[5] && board[5] == playerCharacter)
+				|| (board[6] == board[3] && board[3] == playerCharacter)
+				|| (board[8] == board[7] && board[7] == playerCharacter))) {
+			board[9] = computerCharacter;
+		}
+
+		else {
 			computerPlay();
 		}
 		displayBoard();
