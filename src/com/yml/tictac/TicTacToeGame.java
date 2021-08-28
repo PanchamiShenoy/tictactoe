@@ -46,6 +46,8 @@ public class TicTacToeGame {
 	}
 
 	public void desiredLocation() {
+		while(t==0) {
+		turn = 'p';
 		System.out.println("Player is playing");
 		System.out.println("Please enter the index 1 to 9");
 		index = sc.nextInt();
@@ -55,6 +57,7 @@ public class TicTacToeGame {
 		} else {
 			checkSpace();
 		}
+		}
 	}
 
 	public void checkSpace() {
@@ -62,6 +65,7 @@ public class TicTacToeGame {
 		if (board[index] == ' ') {
 			board[index] = playerCharacter;
 			displayBoard();
+			checkWinner();
 		} else {
 			System.out.println("Please enter different index current one is already filled!!!");
 			desiredLocation();
@@ -78,10 +82,12 @@ public class TicTacToeGame {
 		if (choice == flipResult) {
 			System.out.println("Its player's turn!!!");
 			turn = 'p';
+			desiredLocation();
 
 		} else {
 			System.out.println("Its computer's turn!!!");
 			turn = 'c';
+			computerStratergy();
 
 		}
 
@@ -90,15 +96,15 @@ public class TicTacToeGame {
 	public char isWin() {
 		String line = null;
 
-		// to check if there is an winning situation
+		
 		for (int a = 1; a < 10; a++) {
 
 			switch (a) {
 			case 1:
-				line = "" + board[1] + board[2] + board[3];
+				line = ""+board[1] + board[2] + board[3];
 				break;
 			case 2:
-				line = "" + board[4] + board[5] + board[6];
+				line = ""+board[4] + board[5] + board[6];
 				break;
 			case 3:
 				line = "" + board[7] + board[8] + board[9];
@@ -119,14 +125,14 @@ public class TicTacToeGame {
 				line = "" + board[3] + board[5] + board[7];
 				break;
 			}
-			// For X winner
-			if (line.equals("XXX")) {
-				return 'X';
+			
+			if (line.equals("xxx")) {
+				return 'x';
 			}
 
-			// For O winner
-			else if (line.equals("OOO")) {
-				return 'O';
+			
+			else if (line.equals("ooo")) {
+				return 'o';
 			}
 		}
 		int a1;
@@ -143,10 +149,11 @@ public class TicTacToeGame {
 			return 'n';
 	}
 
-	/** display the winning player or indicate a tie (or unfinished game). */
+	
 	public void checkWinner() {
 
 		char win = isWin();
+		System.out.println(win);
 		if (win == playerCharacter) {
 			System.out.println("Congratulations!!!! You have won the game");
 			t = 1;
@@ -159,15 +166,74 @@ public class TicTacToeGame {
 		} else if (win == 'n') {
 			if (turn == 'p') {
 				turn = 'c';
+				computerStratergy();
 
 			} else {
 				turn = 'p';
+				desiredLocation();
 
 			}
 
 		}
 	}
 
+	public void computerStratergy() {
+		turn = 'c';
+		System.out.println("Computer is playing!!!");	
+		if((board[1]==' ')&&(board[2]==board[3]&&board[2]==computerCharacter)||(board[4]==board[7]&&board[4]==computerCharacter)||(board[5]==board[9]&&board[5]==computerCharacter))
+		{
+			board[1]=computerCharacter;			
+		}
+		else if((board[2]==' ')&&(board[1]==board[3]&&board[3]==computerCharacter)||(board[5]==board[8]&&board[8]==computerCharacter))
+		{
+			board[2]=computerCharacter;
+		}
+		else if((board[3]==' ')&&(board[1]==board[2]&&board[2]==computerCharacter)||(board[6]==board[9]&&board[9]==computerCharacter)||(board[5]==board[7]&&board[7]==computerCharacter))
+		{
+			board[3]=computerCharacter;
+		}
+		else if((board[4]==' ')&&(board[1]==board[7]&&board[1]==computerCharacter)||(board[5]==board[6]&&board[6]==computerCharacter))
+		{
+			board[4]=computerCharacter;
+		}
+		else if((board[5]==' ')&&(board[1]==board[9]&&board[2]==computerCharacter)||(board[7]==board[3]&&board[7]==computerCharacter)||(board[2]==board[8]&&board[8]==computerCharacter)||(board[4]==board[6]&&board[6]==computerCharacter))
+		{
+			board[5]=computerCharacter;
+		}
+		else if((board[6]==' ')&&(board[9]==board[3]&&board[3]==computerCharacter)||(board[5]==board[4]&&board[4]==computerCharacter))
+		{
+			board[6]=computerCharacter;
+		}
+		else if((board[7]==' ')&&(board[1]==board[4]&&board[4]==computerCharacter)||(board[3]==board[5]&&board[3]==computerCharacter)||(board[8]==board[9]&&board[8]==computerCharacter))
+		{
+			board[3]=computerCharacter;
+		}
+		else if((board[8]==' ')&&(board[9]==board[7]&&board[7]==computerCharacter)||(board[2]==board[5]&&board[2]==computerCharacter))
+		{
+			board[8]=computerCharacter;
+		}
+		else if((board[9]==' ')&&(board[1]==board[5]&&board[5]==computerCharacter)||(board[6]==board[3]&&board[3]==computerCharacter)||(board[8]==board[7]&&board[7]==computerCharacter))
+		{
+			board[9]=computerCharacter;
+		}
+	   	else {
+			computerPlay();			
+		}
+		displayBoard();
+		checkWinner();
+		desiredLocation();
+	}
+	
+	public void computerPlay()
+	{
+		while(true) {
+		int index=rn.nextInt(9)+1;
+		if(board[index]==' ') {
+			board[index]=computerCharacter;
+			break;
+		}
+		}
+	}
 	public static void main(String[] args) {
 
 		System.out.println("welcome to TicTacToe");
@@ -175,8 +241,7 @@ public class TicTacToeGame {
 		t.createBoard();
 		t.selectCharacter();
 		t.toss();
-		t.desiredLocation();
-		t.checkWinner();
+		
 	}
 
 }
