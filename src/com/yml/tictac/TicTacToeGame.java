@@ -46,17 +46,17 @@ public class TicTacToeGame {
 	}
 
 	public void desiredLocation() {
-		while(t==0) {
-		turn = 'p';
-		System.out.println("Player is playing");
-		System.out.println("Please enter the index 1 to 9");
-		index = sc.nextInt();
-		if (index < 1 || index > 9) {
-			System.out.println("Please enter the valid index");
-			desiredLocation();
-		} else {
-			checkSpace();
-		}
+		while (t == 0) {
+			turn = 'p';
+			System.out.println("Player is playing");
+			System.out.println("Please enter the index 1 to 9");
+			index = sc.nextInt();
+			if (index < 1 || index > 9) {
+				System.out.println("Please enter the valid index");
+				desiredLocation();
+			} else {
+				checkSpace();
+			}
 		}
 	}
 
@@ -96,15 +96,14 @@ public class TicTacToeGame {
 	public char isWin() {
 		String line = null;
 
-		
 		for (int a = 1; a < 10; a++) {
 
 			switch (a) {
 			case 1:
-				line = ""+board[1] + board[2] + board[3];
+				line = "" + board[1] + board[2] + board[3];
 				break;
 			case 2:
-				line = ""+board[4] + board[5] + board[6];
+				line = "" + board[4] + board[5] + board[6];
 				break;
 			case 3:
 				line = "" + board[7] + board[8] + board[9];
@@ -125,12 +124,11 @@ public class TicTacToeGame {
 				line = "" + board[3] + board[5] + board[7];
 				break;
 			}
-			
+
 			if (line.equals("xxx")) {
 				return 'x';
 			}
 
-			
 			else if (line.equals("ooo")) {
 				return 'o';
 			}
@@ -149,7 +147,6 @@ public class TicTacToeGame {
 			return 'n';
 	}
 
-	
 	public void checkWinner() {
 
 		char win = isWin();
@@ -179,61 +176,58 @@ public class TicTacToeGame {
 
 	public void computerStratergy() {
 		turn = 'c';
-		System.out.println("Computer is playing!!!");	
-		if((board[1]==' ')&&(board[2]==board[3]&&board[2]==computerCharacter)||(board[4]==board[7]&&board[4]==computerCharacter)||(board[5]==board[9]&&board[5]==computerCharacter))
-		{
-			board[1]=computerCharacter;			
-		}
-		else if((board[2]==' ')&&(board[1]==board[3]&&board[3]==computerCharacter)||(board[5]==board[8]&&board[8]==computerCharacter))
-		{
-			board[2]=computerCharacter;
-		}
-		else if((board[3]==' ')&&(board[1]==board[2]&&board[2]==computerCharacter)||(board[6]==board[9]&&board[9]==computerCharacter)||(board[5]==board[7]&&board[7]==computerCharacter))
-		{
-			board[3]=computerCharacter;
-		}
-		else if((board[4]==' ')&&(board[1]==board[7]&&board[1]==computerCharacter)||(board[5]==board[6]&&board[6]==computerCharacter))
-		{
-			board[4]=computerCharacter;
-		}
-		else if((board[5]==' ')&&(board[1]==board[9]&&board[2]==computerCharacter)||(board[7]==board[3]&&board[7]==computerCharacter)||(board[2]==board[8]&&board[8]==computerCharacter)||(board[4]==board[6]&&board[6]==computerCharacter))
-		{
-			board[5]=computerCharacter;
-		}
-		else if((board[6]==' ')&&(board[9]==board[3]&&board[3]==computerCharacter)||(board[5]==board[4]&&board[4]==computerCharacter))
-		{
-			board[6]=computerCharacter;
-		}
-		else if((board[7]==' ')&&(board[1]==board[4]&&board[4]==computerCharacter)||(board[3]==board[5]&&board[3]==computerCharacter)||(board[8]==board[9]&&board[8]==computerCharacter))
-		{
-			board[3]=computerCharacter;
-		}
-		else if((board[8]==' ')&&(board[9]==board[7]&&board[7]==computerCharacter)||(board[2]==board[5]&&board[2]==computerCharacter))
-		{
-			board[8]=computerCharacter;
-		}
-		else if((board[9]==' ')&&(board[1]==board[5]&&board[5]==computerCharacter)||(board[6]==board[3]&&board[3]==computerCharacter)||(board[8]==board[7]&&board[7]==computerCharacter))
-		{
-			board[9]=computerCharacter;
-		}
-	   	else {
-			computerPlay();			
+		System.out.println("Computer is playing!!!");
+		if ((board[1] == ' ') && (board[2] == board[3] && board[2] == computerCharacter)
+				|| (board[4] == board[7] && board[4] == computerCharacter)
+				|| (board[5] == board[9] && board[5] == computerCharacter)) {
+			board[1] = computerCharacter;
+		} else if ((board[2] == ' ') && (board[1] == board[3] && board[3] == computerCharacter)
+				|| (board[5] == board[8] && board[8] == computerCharacter)) {
+			board[2] = computerCharacter;
+		} else if ((board[3] == ' ') && (board[1] == board[2] && board[2] == computerCharacter)
+				|| (board[6] == board[9] && board[9] == computerCharacter)
+				|| (board[5] == board[7] && board[7] == computerCharacter)) {
+			board[3] = computerCharacter;
+		} else if ((board[4] == ' ') && (board[1] == board[7] && board[1] == computerCharacter)
+				|| (board[5] == board[6] && board[6] == computerCharacter)) {
+			board[4] = computerCharacter;
+		} else if ((board[5] == ' ') && (board[1] == board[9] && board[2] == computerCharacter)
+				|| (board[7] == board[3] && board[7] == computerCharacter)
+				|| (board[2] == board[8] && board[8] == computerCharacter)
+				|| (board[4] == board[6] && board[6] == computerCharacter)) {
+			board[5] = computerCharacter;
+		} else if ((board[6] == ' ') && (board[9] == board[3] && board[3] == computerCharacter)
+				|| (board[5] == board[4] && board[4] == computerCharacter)) {
+			board[6] = computerCharacter;
+		} else if ((board[7] == ' ') && (board[1] == board[4] && board[4] == computerCharacter)
+				|| (board[3] == board[5] && board[3] == computerCharacter)
+				|| (board[8] == board[9] && board[8] == computerCharacter)) {
+			board[3] = computerCharacter;
+		} else if ((board[8] == ' ') && (board[9] == board[7] && board[7] == computerCharacter)
+				|| (board[2] == board[5] && board[2] == computerCharacter)) {
+			board[8] = computerCharacter;
+		} else if ((board[9] == ' ') && (board[1] == board[5] && board[5] == computerCharacter)
+				|| (board[6] == board[3] && board[3] == computerCharacter)
+				|| (board[8] == board[7] && board[7] == computerCharacter)) {
+			board[9] = computerCharacter;
+		} else {
+			computerPlay();
 		}
 		displayBoard();
 		checkWinner();
 		desiredLocation();
 	}
-	
-	public void computerPlay()
-	{
-		while(true) {
-		int index=rn.nextInt(9)+1;
-		if(board[index]==' ') {
-			board[index]=computerCharacter;
-			break;
-		}
+
+	public void computerPlay() {
+		while (true) {
+			int index = rn.nextInt(9) + 1;
+			if (board[index] == ' ') {
+				board[index] = computerCharacter;
+				break;
+			}
 		}
 	}
+
 	public static void main(String[] args) {
 
 		System.out.println("welcome to TicTacToe");
@@ -241,7 +235,7 @@ public class TicTacToeGame {
 		t.createBoard();
 		t.selectCharacter();
 		t.toss();
-		
+
 	}
 
 }
