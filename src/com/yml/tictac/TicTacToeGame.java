@@ -69,7 +69,7 @@ public class TicTacToeGame {
 		} else {
 			System.out.println("Please enter different index current one is already filled!!!");
 			desiredLocation();
-			checkSpace();
+
 		}
 
 	}
@@ -276,7 +276,7 @@ public class TicTacToeGame {
 		}
 		displayBoard();
 		checkWinner();
-		desiredLocation();
+		// desiredLocation();
 	}
 
 	public void cornerSelect() {
@@ -290,7 +290,11 @@ public class TicTacToeGame {
 			}
 		}
 		if (flag == 0) {
-			randomSelect();
+			if (board[5] == ' ') {
+				board[5] = computerCharacter;
+			} else {
+				randomSelect();
+			}
 		}
 	}
 
