@@ -46,18 +46,18 @@ public class TicTacToeGame {
 	}
 
 	public void desiredLocation() {
-		while (t == 0) {
-			turn = 'p';
-			System.out.println("Player is playing");
-			System.out.println("Please enter the index 1 to 9");
-			index = sc.nextInt();
-			if (index < 1 || index > 9) {
-				System.out.println("Please enter the valid index");
-				desiredLocation();
-			} else {
-				checkSpace();
-			}
+
+		turn = 'p';
+		System.out.println("Player is playing");
+		System.out.println("Please enter the index 1 to 9");
+		index = sc.nextInt();
+		if (index < 1 || index > 9) {
+			System.out.println("Please enter the valid index");
+			desiredLocation();
+		} else {
+			checkSpace();
 		}
+
 	}
 
 	public void checkSpace() {
@@ -153,13 +153,15 @@ public class TicTacToeGame {
 		System.out.println(win);
 		if (win == playerCharacter) {
 			System.out.println("Congratulations!!!! You have won the game");
-			t = 1;
+
 		} else if (win == computerCharacter) {
 			System.out.println("Sorry!!!Computere has won the game");
 			t = 1;
+			playAgain();
 		} else if (win == 'd') {
 			System.out.println("It's a draw! Thanks for playing");
 			t = 1;
+			playAgain();
 		} else if (win == 'n') {
 			if (turn == 'p') {
 				turn = 'c';
@@ -306,6 +308,21 @@ public class TicTacToeGame {
 				break;
 			}
 		}
+	}
+
+	public void playAgain() {
+		System.out.println("Do you want to play again??\npress 1 to play again\npress 0 to exit");
+		int choice = sc.nextInt();
+		if (choice == 1) {
+			t = 0;
+			createBoard();
+			selectCharacter();
+			toss();
+		} else {
+			t = 1;
+			return;
+		}
+
 	}
 
 	public static void main(String[] args) {
