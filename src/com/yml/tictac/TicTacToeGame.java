@@ -22,6 +22,7 @@ public class TicTacToeGame {
 
 	}
 
+	// method to display board
 	public void displayBoard() {
 
 		System.out.println(" " + board[1] + " | " + board[2] + " | " + board[3] + " ");
@@ -32,6 +33,7 @@ public class TicTacToeGame {
 
 	}
 
+	// method to select x or o
 	public void selectCharacter() {
 
 		System.out.println("Enter the input(X or O) ");
@@ -45,9 +47,9 @@ public class TicTacToeGame {
 		}
 	}
 
+	// method to input the index
 	public void desiredLocation() {
 
-		turn = 'p';
 		System.out.println("Player is playing");
 		System.out.println("Please enter the index 1 to 9");
 		index = sc.nextInt();
@@ -60,6 +62,7 @@ public class TicTacToeGame {
 
 	}
 
+	// method to check if entered index space is empty
 	public void checkSpace() {
 
 		if (board[index] == ' ') {
@@ -74,6 +77,7 @@ public class TicTacToeGame {
 
 	}
 
+	// perform toss to decide who plays first
 	public void toss() {
 		System.out.println("Player do you want to choose head or tail (1 or 0)");
 		int choice = sc.nextInt();
@@ -93,6 +97,7 @@ public class TicTacToeGame {
 
 	}
 
+	// to check if winning or draw condition is satisfied
 	public char isWin() {
 		String line = null;
 
@@ -147,6 +152,7 @@ public class TicTacToeGame {
 			return 'n';
 	}
 
+	// to check if its win ,draw or continue game
 	public void checkWinner() {
 
 		char win = isWin();
@@ -175,7 +181,8 @@ public class TicTacToeGame {
 
 		}
 	}
-
+	
+	//computerStratergy for winning condition
 	public void computerStratergy() {
 		turn = 'c';
 		System.out.println("Computer is playing!!!");
@@ -220,7 +227,16 @@ public class TicTacToeGame {
 				|| (board[8] == board[7] && board[7] == computerCharacter))) {
 			board[9] = computerCharacter;
 
-		} else if ((board[1] == ' ') && ((board[2] == board[3] && board[2] == playerCharacter)
+		} else {
+			computerBlocking();
+		}
+		displayBoard();
+		checkWinner();
+	}
+	
+	//computer stratery for blocking condition
+	public void computerBlocking() {
+		if ((board[1] == ' ') && ((board[2] == board[3] && board[2] == playerCharacter)
 				|| (board[4] == board[7] && board[4] == playerCharacter)
 				|| (board[5] == board[9] && board[5] == playerCharacter))) {
 			board[1] = computerCharacter;
@@ -276,11 +292,10 @@ public class TicTacToeGame {
 		else {
 			cornerSelect();
 		}
-		displayBoard();
-		checkWinner();
-		// desiredLocation();
+
 	}
 
+	// computer stratergy to chose corner and middle position
 	public void cornerSelect() {
 		int corner[] = { 1, 3, 7, 9 };// to check for corner values
 		int flag = 0;
@@ -300,6 +315,7 @@ public class TicTacToeGame {
 		}
 	}
 
+	// computer stratergy to choose random postion
 	public void randomSelect() {
 		while (true) {
 			int index = rn.nextInt(9) + 1;
@@ -310,6 +326,7 @@ public class TicTacToeGame {
 		}
 	}
 
+	// to take input if player wishes to play again
 	public void playAgain() {
 		System.out.println("Do you want to play again??\npress 1 to play again\npress 0 to exit");
 		int choice = sc.nextInt();
